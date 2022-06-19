@@ -3,7 +3,7 @@
 ## Initial Setup
 1. Initialize project.
     * npm init --yes
-    * install dependencies / nodemon, express, express-handlebars, bcrypt, jsonwebtoken /
+    * install dependencies / nodemon, express, express-handlebars, bcrypt, jsonwebtoken, cookie-parser /
     * Modify package.json
 2. Add resources. - html, css, views, images
 
@@ -28,8 +28,12 @@
     * modify hrefs in navigation.
     * modify names in forms.
 3. Add post login and register actions.
-4. Create user.
+4. Create user with register.
 5. Hash password.
+6. Login functionality.
+    * Login action.
+    * Login service method. / find user, validate password /
+    * generate JWT token. / payload, use secret, set expiration /
 
 ## Notifications
 1. Add notification element to layout.
