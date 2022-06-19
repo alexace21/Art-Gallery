@@ -34,6 +34,16 @@
     * Login action.
     * Login service method. / find user, validate password /
     * generate JWT token. / payload, use secret, set expiration /
+7. Logout functionality.
+
+## Authorization
+1. Auth middleware.
+    * use http only cookie
+2. Navigation show/hide.
+3. Route guards.
+4. Add 404 page.
+5. User validation.
+6. global error handling. 
 
 ## Notifications
 1. Add notification element to layout.
