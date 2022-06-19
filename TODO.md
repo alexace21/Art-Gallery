@@ -3,7 +3,7 @@
 ## Initial Setup
 1. Initialize project.
     * npm init --yes
-    * install dependencies / nodemon, express, express-handlebars /
+    * install dependencies / nodemon, express, express-handlebars, bcrypt, jsonwebtoken /
     * Modify package.json
 2. Add resources. - html, css, views, images
 
@@ -17,8 +17,22 @@
 8. Add home view/template.
 9. Fix static/public assets and paths.
 
+## Database setup
+1. Install mongoose.
+2. Configure mongoose.
+3. Create User model.
+
 ## Authentication
 1. Add auth controller.
-2. Add login page.
-    * modify hrefs
-    
+2. Add login and register pages.
+    * modify hrefs in navigation.
+    * modify names in forms.
+3. Add post login and register actions.
+4. Create user.
+5. Hash password.
+
+## Notifications
+1. Add notification element to layout.
+
+## Error-handling
+1. Add error mapper/handler.
