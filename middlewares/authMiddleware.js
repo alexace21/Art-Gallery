@@ -12,7 +12,8 @@ exports.auth = async (req, res, next) => {
             if (err) {
                 res.clearCookie(COOKIE_SESSION_NAME);
 
-                return next(err);
+                //return next(err);
+                res.redirect('/auth/login');
             }
 
             req.user = decodedToken;

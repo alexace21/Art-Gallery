@@ -6,6 +6,8 @@ const { PORT } = require('./config/environment');
 const routes = require('./routes');
 const { dbInit } = require('./config/database');
 const { auth } = require('./middlewares/authMiddleware');
+const { errorHandler } = require('./middlewares/errorHandlerMiddleware');
+
 const app = express();
 
 app.engine('hbs', hbs.engine({
@@ -19,6 +21,7 @@ app.use(express.static('public'));
 app.use(cookieParser());
 app.use(auth);
 app.use(routes);
+app.use(errorHandler);
 
 dbInit()
     .then(() => {
