@@ -17,8 +17,10 @@ router.post('/register', async (req, res) => {
         return res.render('auth/register', { error: 'Password mismatch!' });
     }
     try {
-        // Create user
         const newUser = await userService.create({ password, ...userData });
+        const token = await userService.generateToken(newUser);
+
+        res.cookie(COOKIE_SESSION_NAME, token);
         res.redirect('/login');
     } catch (error) {
         // Add mongoose error mapper/handler
