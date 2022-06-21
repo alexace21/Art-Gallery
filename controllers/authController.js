@@ -33,11 +33,15 @@ router.post('/register', isGuest, async (req, res) => {
 router.post('/login', isGuest, async (req, res) => {
     const { username, password } = req.body;
 
-    const user = await userService.login(username, password);
-    const token = await userService.generateToken(user);
+    try {
+        const user = await userService.login(username, password);
+        const token = await userService.generateToken(user);
 
-    res.cookie(COOKIE_SESSION_NAME, token, { httpOnly: true });
-    res.redirect('/');
+        res.cookie(COOKIE_SESSION_NAME, token, { httpOnly: true });
+        res.redirect('/');
+    } catch (error) {
+        return res.status(401).render('auth/login', { error: getErrorMessage(error) });
+    }
 });
 
 router.get('/logout', isAuth, (req, res) => {

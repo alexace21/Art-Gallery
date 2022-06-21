@@ -10,9 +10,10 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:publicationId/details', async (req, res) => {
-    const publication = await publicationService.getOne(req.params.publicationId);
+    const publication = await publicationService.getOneDetailed(req.params.publicationId).lean();
+    const isAuthor = publication.author._id == req.user?._id; 
 
-    res.render('publication/details', { publication });
+    res.render('publication/details', { ...publication, isAuthor });
 });
 
 router.get('/create', isAuth, (req, res) => {
